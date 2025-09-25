@@ -1,13 +1,19 @@
-public class Enciclopedia extends Libros {
-    private int volumen;
+public abstract class Libros {
+    protected String nombreLibro;
+    protected Double fechaDeCreacion;
+    protected String autor;
 
-    public Enciclopedia(String nombreLibro, Double fechaDeCreacion, String autor, int volumen) {
-        super(nombreLibro, fechaDeCreacion, autor);
-        this.volumen = volumen;
+    public Libros(String nombreLibro, Double fechaDeCreacion, String autor) {
+        this.nombreLibro = nombreLibro;
+        this.fechaDeCreacion = fechaDeCreacion;
+        this.autor = autor;
     }
 
-    @Override
-    public void mostrarInformacion() {
-        System.out.println("Enciclopedia: " + NombreLibro + " (" + FechaDeCreacion.intValue() + "), Autor: " + autor + ", Volumen: " + volumen);
+    // Método abstracto (debe ser implementado por subclases)
+    public abstract void mostrarInformacion();
+
+    // Método concreto (opcional)
+    public void saludar() {
+        System.out.println("Este es un libro del sistema bibliotecario.");
     }
 }
